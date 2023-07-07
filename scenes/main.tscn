@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=9 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://x8mvd4nbvh28" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 [ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0fe"]
+size = Vector2(24, 28)
 
 [node name="Node2D" type="Node2D"]
 
@@ -131,9 +134,15 @@ script = ExtResource("3_yovku")
 scale = Vector2(0.0299353, 0.0445433)
 texture = ExtResource("3_c17p3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="car"]
+[node name="CarCollision" type="CollisionShape2D" parent="car"]
+visible = false
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
+
+[node name="PeopleCollision" type="CollisionShape2D" parent="car"]
+visible = false
+position = Vector2(38, -1)
+shape = SubResource("RectangleShape2D_ua0fe")
 
 [node name="person1" type="Node2D" parent="car" groups=["people"]]
 position = Vector2(29, -10)
