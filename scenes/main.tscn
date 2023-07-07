@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=2 format=3 uid="uid://t7us3pgenqs8"]
+
+[ext_resource type="Texture2D" uid="uid://rd4uwxtapgvc" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 320)
+scale = Vector2(0.894531, 0.798005)
+texture = ExtResource("1_jmwwq")
