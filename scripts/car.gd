@@ -1,8 +1,6 @@
 extends CharacterBody2D
 var Person = load('res://scripts/person.gd')
 
-const MAX_ROW = 2
-const MAX_COLUMN = 1
 const DECELERATION = 0.5
 
 var people: Array = []
