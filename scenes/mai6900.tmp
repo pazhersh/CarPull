@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://t7us3pgenqs8"]
 
-[ext_resource type="Texture2D" uid="uid://x8mvd4nbvh28" path="res://assets/basic-track-1.png" id="1_jmwwq"]
+[ext_resource type="Texture2D" uid="uid://rd4uwxtapgvc" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 [ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="3_s3dpa"]
@@ -129,6 +129,7 @@ script = ExtResource("3_yovku")
 [node name="CarSprite" type="Sprite2D" parent="car"]
 scale = Vector2(0.0299353, 0.0445433)
 texture = ExtResource("3_c17p3")
+metadata/nummy = 651.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="car"]
 scale = Vector2(1.00877, 0.597459)
