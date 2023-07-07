@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var Person = load('res://scenes/person.gd')
+var Person = load('res://scripts/person.gd')
 
 const PULL_POWER = 300.0
 const MAX_ROW = 2
