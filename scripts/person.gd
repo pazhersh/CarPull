@@ -2,6 +2,7 @@ extends Node
 
 const MAX_ROW = 2
 const MAX_COLUMN = 1
+const PULL_POWER = 5.0
 
 var _row
 var _col
@@ -17,5 +18,5 @@ func process(	):
 		var x = 1
 		var row_center = MAX_ROW / _row
 		var y = _row - row_center
-		return Vector2(x, y).normalized()
+		return Vector2(x, y).normalized() * PULL_POWER
 	return Vector2()
