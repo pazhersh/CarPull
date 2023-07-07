@@ -135,12 +135,10 @@ scale = Vector2(0.0299353, 0.0445433)
 texture = ExtResource("3_c17p3")
 
 [node name="CarCollision" type="CollisionShape2D" parent="car"]
-visible = false
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
 [node name="PeopleCollision" type="CollisionShape2D" parent="car"]
-visible = false
 position = Vector2(38, -1)
 shape = SubResource("RectangleShape2D_ua0fe")
 

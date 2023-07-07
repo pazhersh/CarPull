@@ -3,6 +3,8 @@ extends CharacterBody2D
 const DECELERATION = 0.5
 
 var motion = Vector2()
+var stun_time: float = 0
+var immunity_time: float = 0
 
 func calculate_movement() -> Vector2:
 	# Get the input direction and handle the movement/deceleration.
@@ -19,9 +21,20 @@ func calculate_movement() -> Vector2:
 		
 	return motion
 
-func _physics_process(_delta):
-	motion = calculate_movement()
-	var collision_target: KinematicCollision2D = move_and_collide(motion)
+func _physics_process(delta):
+	if stun_time:
+		stun_time -= delta
+		if stun_time <= 0:
+			stun_time = 0
+			immunity_time = 5.0
+	else:
+		motion = calculate_movement()
+		var collision_target: KinematicCollision2D = move_and_collide(motion)
 	
-	if collision_target:
-		print_debug(collision_target.get_collider())
+		if immunity_time:
+			immunity_time -= delta
+			if immunity_time <= 0:
+				immunity_time = 0
+		elif collision_target:
+			stun_time = 3.0
+			
