@@ -20,7 +20,8 @@ func _ready():
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var poeple_movement = people.reduce(func(acc, current): return acc + current.process(), Vector2())
+	# var poeple_movement = people.reduce(func(acc, current): return acc + current.process(), Vector2())
+	var poeple_movement = get_tree().get_nodes_in_group("people").reduce(func(acc, current): return acc + current.process(), Vector2())
 	rotation += poeple_movement.y / 25
 	motion += poeple_movement.rotated(rotation)
 	

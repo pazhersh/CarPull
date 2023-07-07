@@ -13,7 +13,7 @@ func _init(row, col, input: StringName):
 	_col = col
 	_input = input
 
-func process(	):
+func process():
 	if Input.is_action_just_pressed(_input):
 		var x = 1
 		var row_center = MAX_ROW / _row

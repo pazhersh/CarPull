@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=8 format=3 uid="uid://t7us3pgenqs8"]
 
-[ext_resource type="Texture2D" uid="uid://rd4uwxtapgvc" path="res://assets/basic-track-1.png" id="1_jmwwq"]
+[ext_resource type="Texture2D" uid="uid://x8mvd4nbvh28" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 [ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="3_s3dpa"]
 [ext_resource type="Script" path="res://scripts/car.gd" id="3_yovku"]
+[ext_resource type="Script" path="res://scripts/person-node.gd" id="6_3t6yx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
@@ -123,7 +124,7 @@ scale = Vector2(25.28, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
 [node name="car" type="CharacterBody2D" parent="."]
-position = Vector2(127, 74)
+position = Vector2(128, 74)
 script = ExtResource("3_yovku")
 
 [node name="CarSprite" type="Sprite2D" parent="car"]
@@ -134,12 +135,42 @@ texture = ExtResource("3_c17p3")
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
-[node name="PersonSprite1" type="Sprite2D" parent="car"]
-position = Vector2(20, -10)
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
+[node name="person1" type="Node2D" parent="car" groups=["people"]]
+position = Vector2(29, -10)
+script = ExtResource("6_3t6yx")
+metadata/Input = "Q"
 
-[node name="PersonSprite2" type="Sprite2D" parent="car"]
-position = Vector2(20, 10)
+[node name="PersonSprite1" type="Sprite2D" parent="car/person1"]
 scale = Vector2(0.0354278, 0.0354278)
 texture = ExtResource("3_s3dpa")
+metadata/_edit_lock_ = true
+
+[node name="person3" type="Node2D" parent="car" groups=["people"]]
+position = Vector2(47, -10)
+script = ExtResource("6_3t6yx")
+metadata/Input = "W"
+
+[node name="PersonSprite1" type="Sprite2D" parent="car/person3"]
+scale = Vector2(0.0354278, 0.0354278)
+texture = ExtResource("3_s3dpa")
+metadata/_edit_lock_ = true
+
+[node name="person4" type="Node2D" parent="car" groups=["people"]]
+position = Vector2(48, 8)
+script = ExtResource("6_3t6yx")
+metadata/Input = "S"
+
+[node name="PersonSprite1" type="Sprite2D" parent="car/person4"]
+scale = Vector2(0.0354278, 0.0354278)
+texture = ExtResource("3_s3dpa")
+metadata/_edit_lock_ = true
+
+[node name="person2" type="Node2D" parent="car" groups=["people"]]
+position = Vector2(29, 8)
+script = ExtResource("6_3t6yx")
+metadata/Input = "A"
+
+[node name="PersonSprite1" type="Sprite2D" parent="car/person2"]
+scale = Vector2(0.0354278, 0.0354278)
+texture = ExtResource("3_s3dpa")
+metadata/_edit_lock_ = true
