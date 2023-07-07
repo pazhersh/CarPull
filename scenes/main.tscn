@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=10 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://x8mvd4nbvh28" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 [ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
@@ -13,7 +13,10 @@ size = Vector2(20, 21.7163)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0fe"]
 size = Vector2(24, 28)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
+radius = 5.0
+
+[node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575.5, 320)
@@ -22,31 +25,29 @@ texture = ExtResource("1_jmwwq")
 
 [node name="TrackEdges" type="CanvasGroup" parent="."]
 
-[node name="TopOuter" type="StaticBody2D" parent="TrackEdges"]
+[node name="Top outer" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
-[node name="Sprite" type="Sprite2D" parent="TrackEdges/TopOuter"]
-position = Vector2(582, 52)
-scale = Vector2(32.16, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges/TopOuter"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges/Top outer"]
 position = Vector2(582, 52)
 scale = Vector2(32.16, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="TopInner" type="StaticBody2D" parent="TrackEdges"]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges/TopInner"]
-position = Vector2(582, 122)
-scale = Vector2(25.28, 1)
+[node name="Sprite" type="Sprite2D" parent="TrackEdges/Top outer"]
+position = Vector2(582, 52)
+scale = Vector2(32.16, 1)
 texture = ExtResource("2_as2hv")
+
+[node name="TopInner" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges/TopInner"]
 position = Vector2(582, 122)
 scale = Vector2(25.28, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="LeftOuter" type="StaticBody2D" parent="TrackEdges"]
+[node name="Sprite" type="Sprite2D" parent="TrackEdges/TopInner/CollisionPolygon2D"]
+texture = ExtResource("2_as2hv")
+
+[node name="LeftOuter" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/LeftOuter"]
 position = Vector2(88, 324)
@@ -60,7 +61,7 @@ rotation = 1.57597
 scale = Vector2(18.555, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="LeftInner" type="StaticBody2D" parent="TrackEdges"]
+[node name="LeftInner" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/LeftInner"]
 position = Vector2(186, 314)
@@ -74,7 +75,7 @@ rotation = 1.57597
 scale = Vector2(12.5503, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="RightOuter" type="StaticBody2D" parent="TrackEdges"]
+[node name="RightOuter" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/RightOuter"]
 position = Vector2(1086, 322)
@@ -88,7 +89,7 @@ rotation = 1.57597
 scale = Vector2(18.555, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="RightInner" type="StaticBody2D" parent="TrackEdges"]
+[node name="RightInner" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/RightInner"]
 position = Vector2(990, 314)
@@ -102,7 +103,7 @@ rotation = 1.57597
 scale = Vector2(12.5503, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="BottomOuter" type="StaticBody2D" parent="TrackEdges"]
+[node name="BottomOuter" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/BottomOuter"]
 position = Vector2(585, 605)
@@ -114,7 +115,7 @@ position = Vector2(585, 605)
 scale = Vector2(32.16, 1)
 polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
-[node name="BottomInner" type="StaticBody2D" parent="TrackEdges"]
+[node name="BottomInner" type="StaticBody2D" parent="TrackEdges" groups=["obstacles"]]
 
 [node name="Sprite" type="Sprite2D" parent="TrackEdges/BottomInner"]
 position = Vector2(581, 508)
@@ -151,43 +152,21 @@ shape = SubResource("RectangleShape2D_rxctr")
 [node name="PeopleCollision" type="CollisionShape2D" parent="car"]
 position = Vector2(38, -1)
 shape = SubResource("RectangleShape2D_ua0fe")
+disabled = true
 
-[node name="person1" type="Node2D" parent="car" groups=["people"]]
+[node name="person" type="Node2D" parent="car" groups=["people"]]
 position = Vector2(29, -10)
 script = ExtResource("6_3t6yx")
 metadata/Input = "Q"
 
-[node name="PersonSprite1" type="Sprite2D" parent="car/person1"]
+[node name="PersonSprite" type="Sprite2D" parent="car/person"]
 scale = Vector2(0.0354278, 0.0354278)
 texture = ExtResource("3_s3dpa")
 metadata/_edit_lock_ = true
 
-[node name="person3" type="Node2D" parent="car" groups=["people"]]
-position = Vector2(47, -10)
-script = ExtResource("6_3t6yx")
-metadata/Input = "W"
+[node name="Area2D" type="Area2D" parent="car/person"]
 
-[node name="PersonSprite1" type="Sprite2D" parent="car/person3"]
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="car/person/Area2D"]
+shape = SubResource("CircleShape2D_04t4w")
 
-[node name="person4" type="Node2D" parent="car" groups=["people"]]
-position = Vector2(48, 8)
-script = ExtResource("6_3t6yx")
-metadata/Input = "S"
-
-[node name="PersonSprite1" type="Sprite2D" parent="car/person4"]
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
-metadata/_edit_lock_ = true
-
-[node name="person2" type="Node2D" parent="car" groups=["people"]]
-position = Vector2(29, 8)
-script = ExtResource("6_3t6yx")
-metadata/Input = "A"
-
-[node name="PersonSprite1" type="Sprite2D" parent="car/person2"]
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
-metadata/_edit_lock_ = true
+[connection signal="body_entered" from="car/person/Area2D" to="car/person" method="_on_area_2d_body_entered"]
