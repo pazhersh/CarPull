@@ -14,7 +14,7 @@ func calculate_movement() -> Vector2:
 				addition = current.process()
 			return acc + addition,
 		Vector2())
-	rotation += people_movement.y / 25
+	rotation += people_movement.y / 15
 	motion += people_movement.rotated(rotation)
 	
 	var deceleration = -motion.normalized() * DECELERATION
