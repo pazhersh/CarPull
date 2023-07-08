@@ -1,14 +1,18 @@
 extends Sprite2D
 
-const textures = {
-	PersonState.OK: 'res://assets/person 1.png',
-	PersonState.STUNNED: 'res://assets/person lying 1.png',
-	PersonState.INVINCIBLE: 'res://assets/person green 1.png'
+@export var ok_sprite: CompressedTexture2D
+@export var stunned_sprite: CompressedTexture2D
+@export var invincible_sprite: CompressedTexture2D
+
+@onready var textures = {
+	PersonState.OK: ok_sprite,
+	PersonState.STUNNED: stunned_sprite,
+	PersonState.INVINCIBLE: invincible_sprite
 }
 
 func _ready():
-	texture = load(textures[PersonState.OK])
+	texture = textures[PersonState.OK]
 
 # set_texture is already a real thing on Sprite
 func set_state(state: int):
-	texture = load(textures[state])
+	texture = textures[state]

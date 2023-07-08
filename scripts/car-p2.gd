@@ -9,7 +9,7 @@ func _ready():
 	var victoryHorn = get_tree()
 
 func calculate_movement() -> Vector2:
-	var people_movement = get_tree().get_nodes_in_group("p1").reduce(
+	var people_movement = get_tree().get_nodes_in_group("p2").reduce(
 		func(acc, current):
 			var addition = Vector2()
 			if Input.is_action_just_pressed(current.get_input()):
