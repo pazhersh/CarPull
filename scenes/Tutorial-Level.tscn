@@ -46,7 +46,7 @@ polygon = PackedVector2Array(-863, -118, -860, 369, -44, 425, 93, 420, 270, 427,
 polygon = PackedVector2Array(217, -411, 428, -389, 609, -397, 644, -368, 827, -388, 834, -602, 626, -616, 239, -617, -85, -613, -437, -615, -777, -607, -758, -428, -446, -413, -359, -408, -258, -413, -60, -407, 28, -418)
 
 [node name="car-p1" parent="." groups=["player"] instance=ExtResource("2_8auu1")]
-position = Vector2(569, 462)
+position = Vector2(-6, 468)
 
 [node name="Camera2D2" type="Camera2D" parent="car-p1"]
 position = Vector2(-14, 1)
