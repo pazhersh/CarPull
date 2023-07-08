@@ -2,9 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://clrvnvycblemp" path="res://fonts/stopmotiondecember11-webfont.ttf" id="1_w6dkl"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_wotxm"]
-[ext_resource type="PackedScene" path="res://objects/car-menu.tscn" id="2_hrkl5"]
+[ext_resource type="PackedScene" uid="uid://2l80mavjleab" path="res://objects/car-menu.tscn" id="2_hrkl5"]
 [ext_resource type="PackedScene" uid="uid://curmmfutihuua" path="res://scenes/Tutorial-Level.tscn" id="2_htdf8"]
-[ext_resource type="PackedScene" uid="uid://t7us3pgenqs8" path="res://scenes/race.tscn" id="3_slflg"]
+[ext_resource type="PackedScene" uid="uid://bjm58kiden55v" path="res://scenes/split_screen_race.tscn" id="3_i8ll2"]
 
 [sub_resource type="FontVariation" id="FontVariation_gd2sp"]
 base_font = ExtResource("1_w6dkl")
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wotxm")
 tutorial_scene = ExtResource("2_htdf8")
-racePvp_scene = ExtResource("3_slflg")
+racePvp_scene = ExtResource("3_i8ll2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

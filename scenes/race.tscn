@@ -26,18 +26,8 @@ polygon = PackedVector2Array(223, -145, 307, -132, 386, -106, 444, -74, 517, -12
 [node name="BottomOuter" type="CollisionPolygon2D" parent="TrackEdges" groups=["obstacles"]]
 polygon = PackedVector2Array(59, 254, -55, 251, -299, 236, -408, 222, -471, 209, -557, 180, -588, 145, -604, 113, -765, 118, -761, 424, -361.006, 431.311, -35.5726, 437.258, 402.255, 445.261, 771, 452, 780.678, 216.273, 785, 111, 676, 98, 669, 153, 658, 187, 625, 229, 582, 244, 503, 253, 347, 261)
 
-[node name="car" parent="." instance=ExtResource("2_cj3ba")]
+[node name="car-p1" parent="." instance=ExtResource("2_cj3ba")]
 position = Vector2(-254, -274)
-
-[node name="Camera2D2" type="Camera2D" parent="car"]
-position = Vector2(-14, 1)
-offset = Vector2(70, 0)
-ignore_rotation = false
-zoom = Vector2(3.66, 3.66)
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-rotation_smoothing_enabled = true
-rotation_smoothing_speed = 6.0
 
 [node name="car-p2" parent="." instance=ExtResource("4_fups7")]
 position = Vector2(-256, -222)
