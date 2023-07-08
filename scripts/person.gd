@@ -2,7 +2,7 @@ extends Node
 
 const MAX_ROW = 2
 const MAX_COLUMN = 1
-const PULL_POWER = 5.0
+const PULL_POWER = 6.0
 
 const STUN_TIME = 3
 const INVINCIBILITY_TIME = 5

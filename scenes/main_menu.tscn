@@ -52,6 +52,8 @@ layout_mode = 2
 
 [node name="tutorial" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w6dkl")
+theme_override_font_sizes/font_size = 35
 text = "Play Tutorial"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
@@ -59,14 +61,21 @@ layout_mode = 2
 
 [node name="racePvp" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w6dkl")
+theme_override_font_sizes/font_size = 35
 text = "Race Your Friends"
 
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 43
 
-[node name="fightPvp" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+[node name="Credits" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Fight Your Friends"
+theme_override_fonts/font = ExtResource("1_w6dkl")
+theme_override_font_sizes/font_size = 31
+text = "A game by
+Paz Hershberg || Amit Einy"
+horizontal_alignment = 1
 
 [node name="car-menu" parent="." instance=ExtResource("2_hrkl5")]
 position = Vector2(136, 216)
@@ -74,4 +83,3 @@ scale = Vector2(4.135, 4.135)
 
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/tutorial" to="." method="_on_tutorial_button_up"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/racePvp" to="." method="_on_race_pvp_button_up"]
-[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/fightPvp" to="." method="_on_fight_pvp_button_up"]

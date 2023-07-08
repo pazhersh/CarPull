@@ -6,6 +6,16 @@
 
 [sub_resource type="GDScript" id="GDScript_qncqx"]
 script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5nmon"]
