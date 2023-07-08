@@ -13,30 +13,31 @@ enum State {
 	INVINCIBLE
 }
 
-var animation
+var whipSprite: AnimatedSprite2D
+var personSprite: Sprite2D
 var state: State
 var state_time: float
 
 func _ready():
-	var animation = $AnimationPlayer
+	whipSprite = get_children().filter(func(child): return child.name == 'Whip').front()
+	personSprite = get_children().filter(func(child): return child.name == 'Sprite').front()
 	var state = State.OK
 	var state_time: float = 0
 	
 func play_animation():
-	var sprite_index = get_children().find(func (child): child is Sprite2D && child.StringName == 'Sprite') - 1
-	var sprite = get_child(sprite_index)
 	match state:
 		State.STUNNED:
-			sprite.new_texture(sprite.textures['stunned'])
+			personSprite.new_texture(personSprite.textures['stunned'])
 		State.INVINCIBLE:
-			sprite.new_texture(sprite.textures['invincible'])
+			personSprite.new_texture(personSprite.textures['invincible'])
 		_:
-			sprite.new_texture(sprite.textures['ok'])
+			personSprite.new_texture(personSprite.textures['ok'])
 			
 
 func process():
 	if state != State.STUNNED:
 		if Input.is_action_just_pressed(get_meta('Input')):
+			whipSprite.play_once()
 			return self.position.normalized() * PULL_POWER
 	return Vector2()
 	

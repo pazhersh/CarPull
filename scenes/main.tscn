@@ -1,17 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=6 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://bewearmejwxm" path="res://assets/basic-track-3.png" id="1_k0xkd"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
-[ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="3_s3dpa"]
 [ext_resource type="Script" path="res://scripts/car.gd" id="3_yovku"]
-[ext_resource type="Script" path="res://scripts/person-node.gd" id="6_3t6yx"]
-[ext_resource type="Script" path="res://scripts/person-sprite.gd" id="6_ao06c"]
+[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://utility/person.tscn" id="4_tqpeo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
-radius = 5.0
 
 [node name="World" type="Node2D"]
 
@@ -19,17 +14,18 @@ radius = 5.0
 scale = Vector2(0.894531, 0.798005)
 texture = ExtResource("1_k0xkd")
 
-[node name="TrackEdges2" type="StaticBody2D" parent="." groups=["obstacles"]]
+[node name="TrackEdges" type="StaticBody2D" parent="." groups=["obstacles"]]
+visible = false
 
-[node name="Inner" type="CollisionPolygon2D" parent="TrackEdges2" groups=["obstacles"]]
+[node name="Inner" type="CollisionPolygon2D" parent="TrackEdges" groups=["obstacles"]]
 position = Vector2(-71, -150)
 polygon = PackedVector2Array(-129, -44, -73, -47, -25, -45, 186, -23, 307, -5, 375, 14, 511, 79, 553, 128, 576, 164, 581, 218, 551, 245, 509, 255, 284, 252, 120, 239, 38, 240, -85, 224, -195, 218, -328, 203, -378, 192, -392, 166, -386, 113, -365, 70, -311, 23, -271, -5, -215, -30, -171, -41)
 
-[node name="TopOuter" type="CollisionPolygon2D" parent="TrackEdges2" groups=["obstacles"]]
+[node name="TopOuter" type="CollisionPolygon2D" parent="TrackEdges" groups=["obstacles"]]
 position = Vector2(78, -158)
 polygon = PackedVector2Array(223, -145, 307, -132, 386, -106, 444, -74, 517, -12, 567, 44, 591, 136, 594, 230, 591, 298, 707, 309, 714, 24, 660, -225, 452.938, -251.228, 360, -263, 57.1711, -269.128, -233, -275, -506.276, -262.008, -843, -246, -859, -36, -865, 151, -839, 280, -676, 279, -705, 202, -710, 161, -711, 106, -702, 60, -671, 7, -630, -33, -595, -64, -507, -110, -437, -132, -364, -146, -297, -154, -194, -156, -136, -152, -67, -152, 43, -149)
 
-[node name="BottomOuter" type="CollisionPolygon2D" parent="TrackEdges2" groups=["obstacles"]]
+[node name="BottomOuter" type="CollisionPolygon2D" parent="TrackEdges" groups=["obstacles"]]
 polygon = PackedVector2Array(59, 254, -55, 251, -299, 236, -408, 222, -471, 209, -557, 180, -588, 145, -604, 113, -765, 118, -761, 424, -361.006, 431.311, -35.5726, 437.258, 402.255, 445.261, 771, 452, 780.678, 216.273, 785, 111, 676, 98, 669, 153, 658, 187, 625, 229, 582, 244, 503, 253, 347, 261)
 
 [node name="car" type="CharacterBody2D" parent="."]
@@ -56,41 +52,11 @@ position = Vector2(-14, 0)
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
-[node name="person" type="Node2D" parent="car" groups=["people"]]
-position = Vector2(14, -11)
-script = ExtResource("6_3t6yx")
-metadata/Input = "Q"
+[node name="person" parent="car" instance=ExtResource("4_tqpeo")]
+position = Vector2(16, -11)
+rotation = -0.42586
 
-[node name="Sprite" type="Sprite2D" parent="car/person"]
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
-script = ExtResource("6_ao06c")
-metadata/_edit_lock_ = true
-
-[node name="Area2D" type="Area2D" parent="car/person"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="car/person/Area2D"]
-visible = false
-shape = SubResource("CircleShape2D_04t4w")
-
-[node name="person2" type="Node2D" parent="car" groups=["people"]]
-position = Vector2(14, 11)
-script = ExtResource("6_3t6yx")
+[node name="person2" parent="car" instance=ExtResource("4_tqpeo")]
+position = Vector2(17, 7)
+rotation = 0.284489
 metadata/Input = "A"
-
-[node name="Sprite" type="Sprite2D" parent="car/person2"]
-scale = Vector2(0.0354278, 0.0354278)
-texture = ExtResource("3_s3dpa")
-script = ExtResource("6_ao06c")
-metadata/_edit_lock_ = true
-
-[node name="Area2D" type="Area2D" parent="car/person2"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="car/person2/Area2D"]
-visible = false
-shape = SubResource("CircleShape2D_04t4w")
-
-[connection signal="body_entered" from="car/person/Area2D" to="car/person" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="car/person2/Area2D" to="car/person2" method="_on_area_2d_body_entered"]
