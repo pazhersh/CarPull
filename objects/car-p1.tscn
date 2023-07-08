@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0ubt6f1432ul"]
+[gd_scene load_steps=7 format=3 uid="uid://bwvna83g6e6at"]
 
 [ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_u1lq8"]
 [ext_resource type="Texture2D" uid="uid://bvj76bcrn8is2" path="res://assets/temporary-rope-1.png" id="2_sb4s5"]
