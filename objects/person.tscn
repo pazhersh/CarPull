@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://fqqvenao4w0u"]
 
 [ext_resource type="Script" path="res://scripts/person.gd" id="1_nj1by"]
-[ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="2_b7bf1"]
+[ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person blue.png" id="2_b7bf1"]
 [ext_resource type="Script" path="res://scripts/person-sprite.gd" id="3_sj1be"]
 [ext_resource type="AudioStream" uid="uid://hevr0qvvpf68" path="res://audio/whip.mp3" id="4_cuv5r"]
 [ext_resource type="PackedScene" uid="uid://dnlkk8c4xp1m2" path="res://objects/whip.tscn" id="4_rmixa"]

@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://0ubt6f1432ul"]
+[gd_scene load_steps=7 format=3 uid="uid://c3nila7ra0b00"]
 
-[ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_u1lq8"]
-[ext_resource type="Texture2D" uid="uid://bvj76bcrn8is2" path="res://assets/temporary-rope-1.png" id="2_sb4s5"]
-[ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car red.png" id="2_u74su"]
-[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://objects/person.tscn" id="3_nl0ox"]
-[ext_resource type="AudioStream" uid="uid://dmuw0ey0on1l0" path="res://audio/car-ouch.mp3" id="5_60ahr"]
+[ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_n273w"]
+[ext_resource type="Texture2D" uid="uid://bvj76bcrn8is2" path="res://assets/temporary-rope-1.png" id="2_fdlej"]
+[ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car red.png" id="3_chno7"]
+[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://objects/person.tscn" id="4_tg2qa"]
+[ext_resource type="AudioStream" uid="uid://dmuw0ey0on1l0" path="res://audio/car-ouch.mp3" id="5_3lne5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
 
 [node name="car-p1" type="CharacterBody2D"]
 floor_stop_on_slope = false
-script = ExtResource("1_u1lq8")
+script = ExtResource("1_n273w")
 
 [node name="ropes" type="CanvasGroup" parent="."]
 
@@ -19,72 +19,72 @@ script = ExtResource("1_u1lq8")
 position = Vector2(12, 4)
 rotation = -2.98975
 scale = Vector2(0.0530054, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="Temporary-rope-2" type="Sprite2D" parent="ropes"]
 position = Vector2(4.12963, 5.02755)
 rotation = -2.93215
 scale = Vector2(0.0329949, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="Temporary-rope-3" type="Sprite2D" parent="ropes"]
 position = Vector2(23.3976, 4.21387)
 rotation = -2.98975
 scale = Vector2(0.0829369, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="Temporary-rope-4" type="Sprite2D" parent="ropes"]
 position = Vector2(14, -6)
 rotation = 2.92692
 scale = Vector2(0.0530054, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="Temporary-rope-5" type="Sprite2D" parent="ropes"]
 position = Vector2(3, -7)
 rotation = 2.85536
 scale = Vector2(0.0329949, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="Temporary-rope-6" type="Sprite2D" parent="ropes"]
 position = Vector2(23, -6)
 rotation = 2.98102
 scale = Vector2(0.0829369, 0.015)
-texture = ExtResource("2_sb4s5")
+texture = ExtResource("2_fdlej")
 
 [node name="CarSprite" type="Sprite2D" parent="."]
 position = Vector2(-14, 0)
 scale = Vector2(0.0299353, 0.0445433)
-texture = ExtResource("2_u74su")
+texture = ExtResource("3_chno7")
 
 [node name="CarCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-14, 0)
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
-[node name="person" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(16, -11)
 rotation = -0.42586
 
-[node name="person2" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person2" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(17, 7)
 rotation = 0.284489
 metadata/Input = "A"
 
-[node name="person3" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person3" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(34, 8)
 metadata/Input = "S"
 
-[node name="person4" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person4" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(35, -11)
 metadata/Input = "W"
 
-[node name="person5" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person5" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(55, -11)
 metadata/Input = "E"
 
-[node name="person6" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person6" parent="." instance=ExtResource("4_tg2qa")]
 position = Vector2(55, 9)
 metadata/Input = "D"
 
 [node name="ouch" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_60ahr")
+stream = ExtResource("5_3lne5")

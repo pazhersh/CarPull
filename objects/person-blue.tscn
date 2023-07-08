@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://myvwlk1jaajp"]
+
+[ext_resource type="Script" path="res://scripts/person.gd" id="1_nsrdj"]
+[ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person blue.png" id="2_kjo6x"]
+[ext_resource type="Script" path="res://scripts/person-sprite.gd" id="3_1fjew"]
+[ext_resource type="Texture2D" uid="uid://ygxiun1qv6oq" path="res://assets/person green.png" id="4_1nqy5"]
+[ext_resource type="PackedScene" uid="uid://dnlkk8c4xp1m2" path="res://objects/whip.tscn" id="4_so50c"]
+[ext_resource type="AudioStream" uid="uid://hevr0qvvpf68" path="res://audio/whip.mp3" id="5_v02av"]
+[ext_resource type="Texture2D" uid="uid://c1xsr6agb4rnl" path="res://assets/person lying blue.png" id="5_yecg0"]
+[ext_resource type="AudioStream" uid="uid://2wx5yxj503pf" path="res://audio/ouch-sound-effect-30-11844.mp3" id="6_8sa4u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
+radius = 5.0
+
+[node name="person" type="Node2D" groups=["people"]]
+script = ExtResource("1_nsrdj")
+metadata/Input = "Q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.0354278, 0.0354278)
+texture = ExtResource("2_kjo6x")
+script = ExtResource("3_1fjew")
+ok_sprite = ExtResource("2_kjo6x")
+stunned_sprite = ExtResource("4_1nqy5")
+invincible_sprite = ExtResource("5_yecg0")
+textures = {
+0: "res://assets/person red.png",
+1: "res://assets/person lying 1.png",
+2: "res://assets/person green 1.png"
+}
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_04t4w")
+
+[node name="Whip" parent="." instance=ExtResource("4_so50c")]
+position = Vector2(-13, 2)
+rotation = 0.352556
+frame = 3
+frame_progress = 0.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="Whip"]
+stream = ExtResource("5_v02av")
+
+[node name="ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8sa4u")
+volume_db = 9.093
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
