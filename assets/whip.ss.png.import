@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd83ufecbiy72"
-path="res://.godot/imported/Untitled.ss.png-f994e8dd0fe0f1a0bf1cdc8ec3600ffa.ctex"
+uid="uid://cs2a7tlib3yqb"
+path="res://.godot/imported/whip.ss.png-66c474201c8b8eb44a1e778146adc031.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Untitled.ss.png"
-dest_files=["res://.godot/imported/Untitled.ss.png-f994e8dd0fe0f1a0bf1cdc8ec3600ffa.ctex"]
+source_file="res://assets/whip.ss.png"
+dest_files=["res://.godot/imported/whip.ss.png-66c474201c8b8eb44a1e778146adc031.ctex"]
 
 [params]
 
