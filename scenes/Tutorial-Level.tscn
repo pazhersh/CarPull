@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://curmmfutihuua"]
+
+[ext_resource type="Texture2D" uid="uid://c6g38o7rjixvs" path="res://assets/tutorial-track-1.png" id="1_lairr"]
+[ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://objects/car.tscn" id="2_8auu1"]
+[ext_resource type="PackedScene" uid="uid://d0ced5qg6bbld" path="res://objects/saw.tscn" id="3_7bega"]
+[ext_resource type="PackedScene" uid="uid://t3q5xk8syqbp" path="res://objects/saw_path.tscn" id="4_i1n3f"]
+[ext_resource type="Texture2D" uid="uid://cj3hh1iayapq8" path="res://assets/whip text.png" id="4_lcofa"]
+[ext_resource type="Texture2D" uid="uid://bbrg0tmtkompx" path="res://assets/buttons.png" id="5_06oka"]
+
+[sub_resource type="Curve2D" id="Curve2D_65a8f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -187, -609, 0, 0, 0, 0, -170, 235)
+}
+point_count = 2
+
+[node name="Tutorial-Level" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(0.805333, 0.805333)
+texture = ExtResource("1_lairr")
+metadata/_edit_lock_ = true
+
+[node name="car-p1" parent="." instance=ExtResource("2_8auu1")]
+position = Vector2(5, 468)
+
+[node name="Camera2D2" type="Camera2D" parent="car-p1"]
+position = Vector2(-14, 1)
+offset = Vector2(70, 0)
+ignore_rotation = false
+zoom = Vector2(3.245, 3.245)
+position_smoothing_speed = 6.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 6.0
+metadata/_edit_lock_ = true
+
+[node name="Path2D" parent="." instance=ExtResource("3_7bega")]
+
+[node name="sawPath2" parent="Path2D" instance=ExtResource("4_i1n3f")]
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_65a8f")
+
+[node name="sawPath" parent="Path2D2" instance=ExtResource("4_i1n3f")]
+position = Vector2(-178.5, -187)
+rotation = 1.55066
+progress = 422.086
+
+[node name="WhipText" type="Sprite2D" parent="."]
+position = Vector2(-18, 453)
+scale = Vector2(0.112403, 0.112403)
+texture = ExtResource("4_lcofa")
+
+[node name="Buttons" type="Sprite2D" parent="."]
+position = Vector2(34, 465)
+scale = Vector2(0.0764331, 0.0764331)
+texture = ExtResource("5_06oka")

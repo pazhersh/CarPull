@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://t3q5xk8syqbp"]
+
+[ext_resource type="Script" path="res://scripts/sawPath.gd" id="1_yolyu"]
+[ext_resource type="Texture2D" uid="uid://syq4xlkiyf5h" path="res://assets/Saw_Blade_Idle-880793694.png" id="2_lstt7"]
+[ext_resource type="Script" path="res://scripts/sawSprite.gd" id="3_gkimr"]
+
+[sub_resource type="GDScript" id="GDScript_qncqx"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nmon"]
+radius = 266.152
+
+[node name="sawPath" type="PathFollow2D"]
+position = Vector2(55, -610)
+rotation = 1.57574
+script = ExtResource("1_yolyu")
+
+[node name="saw" type="StaticBody2D" parent="." groups=["obstacles"]]
+scale = Vector2(0.305, 0.305)
+script = SubResource("GDScript_qncqx")
+
+[node name="sawSprite" type="Sprite2D" parent="saw"]
+texture = ExtResource("2_lstt7")
+script = ExtResource("3_gkimr")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="saw" groups=["obstacles"]]
+shape = SubResource("CircleShape2D_5nmon")
+metadata/_edit_lock_ = true
+
+[node name="_Timer_90821" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="_Timer_95114" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="_Timer_122701" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ced5qg6bbld"]
+
+[ext_resource type="PackedScene" uid="uid://t3q5xk8syqbp" path="res://objects/saw_path.tscn" id="1_j86u3"]
+
+[sub_resource type="Curve2D" id="Curve2D_212ua"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 55, -610, 0, 0, 0, 0, 51, 199)
+}
+point_count = 2
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_212ua")
+
+[node name="sawPath" parent="." instance=ExtResource("1_j86u3")]

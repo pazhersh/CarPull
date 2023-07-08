@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ubt6f1432ul"]
 
-[ext_resource type="Script" path="res://scripts/car.gd" id="1_q3yv1"]
+[ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_u1lq8"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="2_u74su"]
 [ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://objects/person.tscn" id="3_nl0ox"]
 
@@ -9,7 +9,7 @@ size = Vector2(20, 21.7163)
 
 [node name="car" type="CharacterBody2D"]
 floor_stop_on_slope = false
-script = ExtResource("1_q3yv1")
+script = ExtResource("1_u1lq8")
 
 [node name="CarSprite" type="Sprite2D" parent="."]
 position = Vector2(-14, 0)
