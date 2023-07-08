@@ -10,37 +10,36 @@
 
 [sub_resource type="Curve2D" id="Curve2D_65a8f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -165, -499, 0, 0, 0, 0, -173, 136)
+"points": PackedVector2Array(0, 0, 0, 0, -191, -599, 0, 0, 0, 0, -176, 246)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_kftgm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 54, -514, 0, 0, 0, 0, 67, 171)
+"points": PackedVector2Array(0, 0, 0, 0, 50, -597, 0, 0, 0, 0, 64, 303)
 }
 point_count = 2
 
 [node name="Tutorial-Level" type="Node2D"]
 
-[node name="bounds" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bounds"]
-polygon = PackedVector2Array(-39, 513, -55, 699, 1259, 783, 1217, 493, 824, 504, 624, 499, 481, 508, 188, 514)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="bounds"]
-polygon = PackedVector2Array(879, 139, 864, 400, 869, 557, 1210, 509, 1254, -626, 858, -618, 861, -56)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="bounds"]
-polygon = PackedVector2Array(-863, -118, -860, 369, -44, 425, 93, 420, 270, 427, 355, 421, 423, 413, 633, 416, 620, -65, 467, -85, 336, -70, -30, -78, -234, -82, -358, -113, -443, -107, -576, -78)
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="bounds"]
-polygon = PackedVector2Array(217, -411, 428, -389, 609, -397, 644, -368, 827, -388, 834, -602, 626, -616, 239, -617, -85, -613, -437, -615, -777, -607, -758, -428, -446, -413, -359, -408, -258, -413, -60, -407, 28, -418)
-
 [node name="background" type="Sprite2D" parent="."]
 scale = Vector2(0.805333, 0.805333)
 texture = ExtResource("1_lairr")
 metadata/_edit_lock_ = true
+
+[node name="bounds" type="StaticBody2D" parent="." groups=["obstacles"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bounds" groups=["obstacles"]]
+polygon = PackedVector2Array(-39, 513, -55, 699, 1259, 783, 1217, 493, 824, 504, 624, 499, 481, 508, 188, 514)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="bounds" groups=["obstacles"]]
+polygon = PackedVector2Array(879, 139, 864, 400, 869, 557, 1210, 509, 1254, -626, 858, -618, 861, -56)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="bounds" groups=["obstacles"]]
+polygon = PackedVector2Array(-863, -118, -860, 369, -44, 425, 93, 420, 270, 427, 355, 421, 423, 413, 633, 416, 620, -65, 467, -85, 336, -70, -30, -78, -234, -82, -358, -113, -443, -107, -576, -78)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="bounds" groups=["obstacles"]]
+polygon = PackedVector2Array(217, -411, 428, -389, 609, -397, 644, -368, 827, -388, 834, -602, 626, -616, 239, -617, -85, -613, -437, -615, -777, -607, -758, -428, -446, -413, -359, -408, -258, -413, -60, -407, 28, -418)
 
 [node name="car-p1" parent="." instance=ExtResource("2_8auu1")]
 position = Vector2(5, 468)
@@ -59,8 +58,8 @@ metadata/_edit_lock_ = true
 curve = SubResource("Curve2D_65a8f")
 
 [node name="sawPath" parent="Path2D2" instance=ExtResource("4_i1n3f")]
-position = Vector2(-165, -499)
-rotation = 1.58339
+position = Vector2(-191, -599)
+rotation = 1.55305
 
 [node name="WhipText" type="Sprite2D" parent="."]
 position = Vector2(-18, 453)
@@ -85,8 +84,8 @@ stream = ExtResource("8_slrps")
 curve = SubResource("Curve2D_kftgm")
 
 [node name="sawPath" parent="Path2D" instance=ExtResource("4_i1n3f")]
-position = Vector2(61.6089, -113.068)
-rotation = 1.55182
+position = Vector2(56.2371, -196.046)
+rotation = 1.55524
 progress = 401.003
 
 [connection signal="car_passed_finish_line" from="car-p1" to="finishLine" method="_on_carp_1_car_passed_finish_line"]
