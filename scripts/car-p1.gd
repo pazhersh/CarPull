@@ -5,8 +5,6 @@ const DECELERATION = 0.5
 signal car_passed_finish_line
 
 var motion = Vector2()
-func _ready():
-	var victoryHorn = get_tree()
 
 func calculate_movement() -> Vector2:
 	var people_movement = get_tree().get_nodes_in_group("p1").reduce(
@@ -27,7 +25,7 @@ func calculate_movement() -> Vector2:
 		
 	return motion
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	motion = calculate_movement()
 	var collision_target: KinematicCollision2D = move_and_collide(motion)
 	
