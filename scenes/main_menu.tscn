@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2b0k1mbvhfef"]
 
 [ext_resource type="FontFile" uid="uid://clrvnvycblemp" path="res://fonts/stopmotiondecember11-webfont.ttf" id="1_w6dkl"]
-[ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://objects/car-p1.tscn" id="2_52q2b"]
+[ext_resource type="PackedScene" uid="uid://2l80mavjleab" path="res://objects/car-menu.tscn" id="2_hrkl5"]
 
 [sub_resource type="FontVariation" id="FontVariation_gd2sp"]
 base_font = ExtResource("1_w6dkl")
@@ -36,6 +36,6 @@ text = "CarPull"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="car" parent="." instance=ExtResource("2_52q2b")]
-position = Vector2(184, 192)
-scale = Vector2(3.55, 3.55)
+[node name="car-menu" parent="." instance=ExtResource("2_hrkl5")]
+position = Vector2(136, 216)
+scale = Vector2(4.135, 4.135)

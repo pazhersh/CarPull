@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
 
-[node name="car" type="CharacterBody2D"]
+[node name="car-p1" type="CharacterBody2D"]
 floor_stop_on_slope = false
 script = ExtResource("1_u1lq8")
 

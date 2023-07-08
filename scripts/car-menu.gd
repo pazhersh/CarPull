@@ -1,21 +1,32 @@
 extends CharacterBody2D
 
 const DECELERATION = 0.5
-
-signal car_passed_finish_line
+const DELAY_BETWEEN_WHIPS = 2
+var topDelay = 2
+var bottomeDelay = 2.3
 
 var motion = Vector2()
 func _ready():
 	var victoryHorn = get_tree()
 
-func calculate_movement() -> Vector2:
-	var people_movement = get_tree().get_nodes_in_group("people").reduce(
-		func(acc, current):
-			var addition = Vector2()
-			if Input.is_action_just_pressed(current.get_input()):
-				addition = current.process()
-			return acc + addition,
-		Vector2())
+func calculate_movement(delta) -> Vector2:
+	var people_movement = Vector2()
+	if topDelay == 0:
+		people_movement += $personTop.process()
+		topDelay += DELAY_BETWEEN_WHIPS + randf()
+	else:
+		topDelay -= delta
+		if topDelay < 0:
+			topDelay = 0
+			
+	if bottomeDelay == 0:
+		people_movement +=  $personBottom.process()
+		bottomeDelay += DELAY_BETWEEN_WHIPS + randf()
+	else:
+		bottomeDelay -= delta
+		if bottomeDelay < 0:
+			bottomeDelay = 0
+
 	rotation += people_movement.y / 25
 	motion += people_movement.rotated(rotation)
 	
@@ -28,14 +39,9 @@ func calculate_movement() -> Vector2:
 	return motion
 
 func _physics_process(delta):
-	motion = calculate_movement()
+	motion = calculate_movement(delta)
 	var collision_target: KinematicCollision2D = move_and_collide(motion)
 	
 	if collision_target:
 		if !$ouch.is_playing():
 			$ouch.play()
-
-
-func _on_finish_line_body_entered(body):
-	if body == self:
-		car_passed_finish_line.emit()

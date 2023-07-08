@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://2l80mavjleab"]
+
+[ext_resource type="Script" path="res://scripts/car-menu.gd" id="1_ppv3h"]
+[ext_resource type="Texture2D" uid="uid://bvj76bcrn8is2" path="res://assets/temporary-rope-1.png" id="2_5bt6n"]
+[ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_jmmhi"]
+[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://objects/person.tscn" id="4_fnylm"]
+[ext_resource type="AudioStream" uid="uid://dmuw0ey0on1l0" path="res://audio/car-ouch.mp3" id="5_unva8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
+size = Vector2(20, 21.7163)
+
+[node name="car-menu" type="CharacterBody2D"]
+floor_stop_on_slope = false
+script = ExtResource("1_ppv3h")
+
+[node name="ropes" type="CanvasGroup" parent="."]
+
+[node name="Temporary-rope-2" type="Sprite2D" parent="ropes"]
+position = Vector2(4.12963, 5.02755)
+rotation = -2.93215
+scale = Vector2(0.0329949, 0.015)
+texture = ExtResource("2_5bt6n")
+
+[node name="Temporary-rope-5" type="Sprite2D" parent="ropes"]
+position = Vector2(3, -4)
+rotation = 2.85536
+scale = Vector2(0.0329949, 0.015)
+texture = ExtResource("2_5bt6n")
+
+[node name="CarSprite" type="Sprite2D" parent="."]
+position = Vector2(-14, 0)
+scale = Vector2(0.0299353, 0.0445433)
+texture = ExtResource("3_jmmhi")
+
+[node name="CarCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 0)
+scale = Vector2(1.00877, 0.597459)
+shape = SubResource("RectangleShape2D_rxctr")
+
+[node name="personTop" parent="." instance=ExtResource("4_fnylm")]
+position = Vector2(16, -8)
+rotation = -0.42586
+
+[node name="personBottom" parent="." instance=ExtResource("4_fnylm")]
+position = Vector2(17, 8)
+rotation = 0.284489
+
+[node name="ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_unva8")
