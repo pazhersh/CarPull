@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://curmmfutihuua"]
 
 [ext_resource type="Texture2D" uid="uid://c6g38o7rjixvs" path="res://assets/tutorial-track-1.png" id="1_lairr"]
-[ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://objects/car-p1.tscn" id="2_8auu1"]
+[ext_resource type="PackedScene" uid="uid://bwvna83g6e6at" path="res://objects/car-p1.tscn" id="2_8auu1"]
 [ext_resource type="PackedScene" uid="uid://t3q5xk8syqbp" path="res://objects/saw_path.tscn" id="4_i1n3f"]
 [ext_resource type="Texture2D" uid="uid://cj3hh1iayapq8" path="res://assets/whip text.png" id="4_lcofa"]
 [ext_resource type="Texture2D" uid="uid://bbrg0tmtkompx" path="res://assets/buttons.png" id="5_06oka"]
