@@ -6,8 +6,6 @@ var topDelay = 2
 var bottomeDelay = 2.3
 
 var motion = Vector2()
-func _ready():
-	var victoryHorn = get_tree()
 
 func calculate_movement(delta) -> Vector2:
 	var people_movement = Vector2()
