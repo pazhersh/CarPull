@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ubt6f1432ul"]
+
+[ext_resource type="Script" path="res://scripts/car.gd" id="1_q3yv1"]
+[ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="2_u74su"]
+[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://utility/person.tscn" id="3_nl0ox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
+size = Vector2(20, 21.7163)
+
+[node name="car" type="CharacterBody2D"]
+floor_stop_on_slope = false
+script = ExtResource("1_q3yv1")
+
+[node name="CarSprite" type="Sprite2D" parent="."]
+position = Vector2(-14, 0)
+scale = Vector2(0.0299353, 0.0445433)
+texture = ExtResource("2_u74su")
+
+[node name="CarCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 0)
+scale = Vector2(1.00877, 0.597459)
+shape = SubResource("RectangleShape2D_rxctr")
+
+[node name="person" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(16, -11)
+rotation = -0.42586
+
+[node name="person2" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(17, 7)
+rotation = 0.284489
+metadata/Input = "A"
+
+[node name="person3" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(34, 8)
+metadata/Input = "S"
+
+[node name="person4" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(35, -11)
+metadata/Input = "W"
+
+[node name="person5" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(55, -11)
+metadata/Input = "E"
+
+[node name="person6" parent="." instance=ExtResource("3_nl0ox")]
+position = Vector2(55, 9)
+metadata/Input = "D"

@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=3 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://bewearmejwxm" path="res://assets/basic-track-3.png" id="1_k0xkd"]
-[ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
-[ext_resource type="Script" path="res://scripts/car.gd" id="3_yovku"]
-[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://utility/person.tscn" id="4_tqpeo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
-size = Vector2(20, 21.7163)
+[ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://utility/car.tscn" id="2_cj3ba"]
 
 [node name="World" type="Node2D"]
 
@@ -28,11 +23,10 @@ polygon = PackedVector2Array(223, -145, 307, -132, 386, -106, 444, -74, 517, -12
 [node name="BottomOuter" type="CollisionPolygon2D" parent="TrackEdges" groups=["obstacles"]]
 polygon = PackedVector2Array(59, 254, -55, 251, -299, 236, -408, 222, -471, 209, -557, 180, -588, 145, -604, 113, -765, 118, -761, 424, -361.006, 431.311, -35.5726, 437.258, 402.255, 445.261, 771, 452, 780.678, 216.273, 785, 111, 676, 98, 669, 153, 658, 187, 625, 229, 582, 244, 503, 253, 347, 261)
 
-[node name="car" type="CharacterBody2D" parent="."]
-position = Vector2(-173, -279)
-script = ExtResource("3_yovku")
+[node name="car" parent="." instance=ExtResource("2_cj3ba")]
+position = Vector2(-254, -274)
 
-[node name="Camera2D" type="Camera2D" parent="car"]
+[node name="Camera2D2" type="Camera2D" parent="car"]
 position = Vector2(-14, 1)
 offset = Vector2(70, 0)
 ignore_rotation = false
@@ -41,22 +35,3 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 6.0
-
-[node name="CarSprite" type="Sprite2D" parent="car"]
-position = Vector2(-14, 0)
-scale = Vector2(0.0299353, 0.0445433)
-texture = ExtResource("3_c17p3")
-
-[node name="CarCollision" type="CollisionShape2D" parent="car"]
-position = Vector2(-14, 0)
-scale = Vector2(1.00877, 0.597459)
-shape = SubResource("RectangleShape2D_rxctr")
-
-[node name="person" parent="car" instance=ExtResource("4_tqpeo")]
-position = Vector2(16, -11)
-rotation = -0.42586
-
-[node name="person2" parent="car" instance=ExtResource("4_tqpeo")]
-position = Vector2(17, 7)
-rotation = 0.284489
-metadata/Input = "A"
