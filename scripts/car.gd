@@ -5,8 +5,6 @@ const DECELERATION = 0.5
 var motion = Vector2()
 
 func calculate_movement() -> Vector2:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var people_movement = get_tree().get_nodes_in_group("people").reduce(func(acc, current): return acc + current.process(), Vector2())
 	rotation += people_movement.y / 25
 	motion += people_movement.rotated(rotation)

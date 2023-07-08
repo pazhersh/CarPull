@@ -12,8 +12,25 @@ enum State {
 	STUNNED,
 	INVINCIBLE
 }
-var state = State.OK
-var state_time: float = 0
+
+var animation
+var state: State
+var state_time: float
+
+func _ready():
+	var animation = $AnimationPlayer
+	var state = State.OK
+	var state_time: float = 0
+	
+func play_animation():
+	var sprite_index = get_children().find(func (child): child is Sprite2D && child.StringName == 'Sprite') - 1
+	var sprite = get_child(sprite_index)
+	match state:
+		State.STUNNED:
+			sprite.new_texture(sprite.textures['stunned'])
+		_:
+			sprite.new_texture(sprite.textures['ok'])
+			
 
 func process():
 	if state != State.STUNNED:
@@ -22,6 +39,7 @@ func process():
 	return Vector2()
 	
 func _process(delta):
+	play_animation()
 	state_time -= delta
 	if state_time < 0:
 		match state:

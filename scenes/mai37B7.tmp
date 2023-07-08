@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="3_s3dpa"]
 [ext_resource type="Script" path="res://scripts/car.gd" id="3_yovku"]
-[ext_resource type="Script" path="res://scripts/person-node.gd" id="6_3t6yx"]
 [ext_resource type="Script" path="res://scripts/person-sprite.gd" id="6_ao06c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
@@ -13,6 +12,63 @@ size = Vector2(20, 21.7163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0fe"]
 size = Vector2(24, 28)
+
+[sub_resource type="GDScript" id="GDScript_03j7x"]
+script/source = "extends Node
+
+const MAX_ROW = 2
+const MAX_COLUMN = 1
+const PULL_POWER = 5.0
+
+const STUN_TIME = 3
+const INVINCIBILITY_TIME = 5
+
+enum State {
+	OK,
+	STUNNED,
+	INVINCIBLE
+}
+
+var animation
+var state: State
+var state_time: float
+
+func _ready():
+	var animation = $AnimationPlayer
+	var state = State.OK
+	var state_time: float = 0
+	
+func play_animation():
+	match state:
+		State.STUNNED:
+			texture = load('res://assets/person 1.png')
+		_:
+			texture = load('res://assets/person lying 1.png')
+			
+
+func process():
+	if state != State.STUNNED:
+		if Input.is_action_just_pressed(get_meta('Input')):
+			return self.position.normalized() * PULL_POWER
+	return Vector2()
+	
+func _process(delta):
+	state_time -= delta
+	if state_time < 0:
+		match state:
+			State.STUNNED:
+				state = State.INVINCIBLE
+				state_time = INVINCIBILITY_TIME
+			_:
+				state = State.OK
+				state_time = 0
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group(\"obstacles\") && state != State.INVINCIBLE:
+		state = State.STUNNED
+		state_time = STUN_TIME
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
 radius = 5.0
@@ -157,7 +213,7 @@ disabled = true
 
 [node name="person" type="Node2D" parent="car" groups=["people"]]
 position = Vector2(29, -10)
-script = ExtResource("6_3t6yx")
+script = SubResource("GDScript_03j7x")
 metadata/Input = "Q"
 
 [node name="Sprite" type="Sprite2D" parent="car/person"]
