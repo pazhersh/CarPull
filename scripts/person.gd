@@ -46,3 +46,4 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("obstacles") && state == PersonState.OK:
 		state = PersonState.STUNNED
 		state_time = STUN_TIME
+		$ouch.play()

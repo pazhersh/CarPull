@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2b0k1mbvhfef"]
+[gd_scene load_steps=7 format=3 uid="uid://d2b0k1mbvhfef"]
 
 [ext_resource type="FontFile" uid="uid://clrvnvycblemp" path="res://fonts/stopmotiondecember11-webfont.ttf" id="1_w6dkl"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_wotxm"]
 [ext_resource type="PackedScene" uid="uid://2l80mavjleab" path="res://objects/car-menu.tscn" id="2_hrkl5"]
+[ext_resource type="PackedScene" uid="uid://curmmfutihuua" path="res://scenes/Tutorial-Level.tscn" id="2_htdf8"]
+[ext_resource type="PackedScene" uid="uid://t7us3pgenqs8" path="res://scenes/race.tscn" id="3_slflg"]
 
 [sub_resource type="FontVariation" id="FontVariation_gd2sp"]
 base_font = ExtResource("1_w6dkl")
@@ -13,6 +16,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wotxm")
+tutorial_scene = ExtResource("2_htdf8")
+racePvp_scene = ExtResource("3_slflg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -36,6 +42,36 @@ text = "CarPull"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="tutorial" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Play Tutorial"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="racePvp" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Race Your Friends"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="fightPvp" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Fight Your Friends"
+
 [node name="car-menu" parent="." instance=ExtResource("2_hrkl5")]
 position = Vector2(136, 216)
 scale = Vector2(4.135, 4.135)
+
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/tutorial" to="." method="_on_tutorial_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/racePvp" to="." method="_on_race_pvp_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/fightPvp" to="." method="_on_fight_pvp_button_up"]
