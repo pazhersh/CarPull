@@ -21,8 +21,8 @@ scale = Vector2(0.0354278, 0.0354278)
 texture = ExtResource("2_whc60")
 script = ExtResource("3_ffm18")
 ok_sprite = ExtResource("2_whc60")
-stunned_sprite = ExtResource("4_wot8v")
-invincible_sprite = ExtResource("5_twdi6")
+stunned_sprite = ExtResource("5_twdi6")
+invincible_sprite = ExtResource("4_wot8v")
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]

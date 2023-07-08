@@ -9,9 +9,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
 
-[node name="car-p1" type="CharacterBody2D"]
+[node name="car-p1" type="CharacterBody2D" groups=["obstacles"]]
 floor_stop_on_slope = false
 script = ExtResource("1_hdbb1")
+
+[node name="CarCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 0)
+scale = Vector2(1.00877, 0.597459)
+shape = SubResource("RectangleShape2D_rxctr")
 
 [node name="ropes" type="CanvasGroup" parent="."]
 
@@ -55,11 +60,6 @@ texture = ExtResource("2_sb4s5")
 position = Vector2(-14, 0)
 scale = Vector2(0.0299353, 0.0445433)
 texture = ExtResource("2_u74su")
-
-[node name="CarCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-14, 0)
-scale = Vector2(1.00877, 0.597459)
-shape = SubResource("RectangleShape2D_rxctr")
 
 [node name="ouch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_60ahr")

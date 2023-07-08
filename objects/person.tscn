@@ -13,7 +13,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
 radius = 5.0
 
-[node name="person" type="Node2D" groups=["people"]]
+[node name="person2" type="Node2D" groups=["people"]]
 script = ExtResource("1_nj1by")
 metadata/Input = "Q"
 
