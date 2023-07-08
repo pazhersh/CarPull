@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=9 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://bewearmejwxm" path="res://assets/basic-track-3.png" id="1_k0xkd"]
-[ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car 1.png" id="3_c17p3"]
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="3_s3dpa"]
 [ext_resource type="Script" path="res://scripts/car.gd" id="3_yovku"]
@@ -32,111 +31,6 @@ polygon = PackedVector2Array(223, -145, 307, -132, 386, -106, 444, -74, 517, -12
 
 [node name="BottomOuter" type="CollisionPolygon2D" parent="TrackEdges2" groups=["obstacles"]]
 polygon = PackedVector2Array(59, 254, -55, 251, -299, 236, -408, 222, -471, 209, -557, 180, -588, 145, -604, 113, -765, 118, -761, 424, -361.006, 431.311, -35.5726, 437.258, 402.255, 445.261, 771, 452, 780.678, 216.273, 785, 111, 676, 98, 669, 153, 658, 187, 625, 229, 582, 244, 503, 253, 347, 261)
-
-[node name="TrackEdges1" type="CanvasGroup" parent="."]
-visible = false
-
-[node name="Top outer" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/Top outer"]
-position = Vector2(582, 52)
-scale = Vector2(32.16, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/Top outer"]
-position = Vector2(582, 52)
-scale = Vector2(32.16, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="TopInner" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/TopInner"]
-position = Vector2(582, 122)
-scale = Vector2(25.28, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/TopInner/CollisionPolygon2D"]
-texture = ExtResource("2_as2hv")
-
-[node name="LeftOuter" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/LeftOuter"]
-position = Vector2(88, 324)
-rotation = 1.57597
-scale = Vector2(18.555, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/LeftOuter"]
-position = Vector2(88, 324)
-rotation = 1.57597
-scale = Vector2(18.555, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="LeftInner" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/LeftInner"]
-position = Vector2(186, 314)
-rotation = 1.57597
-scale = Vector2(12.5503, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/LeftInner"]
-position = Vector2(186, 314)
-rotation = 1.57597
-scale = Vector2(12.5503, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="RightOuter" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/RightOuter"]
-position = Vector2(1086, 322)
-rotation = 1.57597
-scale = Vector2(18.555, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/RightOuter"]
-position = Vector2(1086, 322)
-rotation = 1.57597
-scale = Vector2(18.555, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="RightInner" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/RightInner"]
-position = Vector2(990, 314)
-rotation = 1.57597
-scale = Vector2(12.5503, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/RightInner"]
-position = Vector2(990, 314)
-rotation = 1.57597
-scale = Vector2(12.5503, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="BottomOuter" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/BottomOuter"]
-position = Vector2(585, 605)
-scale = Vector2(32.16, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/BottomOuter"]
-position = Vector2(585, 605)
-scale = Vector2(32.16, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
-
-[node name="BottomInner" type="StaticBody2D" parent="TrackEdges1" groups=["obstacles"]]
-
-[node name="Sprite" type="Sprite2D" parent="TrackEdges1/BottomInner"]
-position = Vector2(581, 508)
-scale = Vector2(25.28, 1)
-texture = ExtResource("2_as2hv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackEdges1/BottomInner"]
-position = Vector2(581, 508)
-scale = Vector2(25.28, 1)
-polygon = PackedVector2Array(16, 4, -16, 4, -16, -4, 16, -4)
 
 [node name="car" type="CharacterBody2D" parent="."]
 position = Vector2(-173, -279)
