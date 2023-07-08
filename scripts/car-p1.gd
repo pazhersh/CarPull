@@ -2,7 +2,11 @@ extends CharacterBody2D
 
 const DECELERATION = 0.5
 
+signal car_passed_finish_line
+
 var motion = Vector2()
+func _ready():
+	var victoryHorn = get_tree()
 
 func calculate_movement() -> Vector2:
 	var people_movement = get_tree().get_nodes_in_group("people").reduce(func(acc, current): return acc + current.process(), Vector2())
@@ -23,3 +27,8 @@ func _physics_process(delta):
 	
 	if collision_target:
 		print("Car has collided")
+
+
+func _on_finish_line_body_entered(body):
+	if body == self:
+		car_passed_finish_line.emit()
