@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=10 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://x8mvd4nbvh28" path="res://assets/basic-track-1.png" id="1_jmwwq"]
 [ext_resource type="Texture2D" uid="uid://ddkyeckf7jcap" path="res://assets/track-edge-1.png" id="2_as2hv"]
@@ -10,9 +10,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0fe"]
-size = Vector2(24, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
 radius = 5.0
@@ -150,11 +147,6 @@ texture = ExtResource("3_c17p3")
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
-[node name="PeopleCollision" type="CollisionShape2D" parent="car"]
-position = Vector2(38, -1)
-shape = SubResource("RectangleShape2D_ua0fe")
-disabled = true
-
 [node name="person" type="Node2D" parent="car" groups=["people"]]
 position = Vector2(29, -10)
 script = ExtResource("6_3t6yx")
@@ -164,10 +156,32 @@ metadata/Input = "Q"
 scale = Vector2(0.0354278, 0.0354278)
 texture = ExtResource("3_s3dpa")
 script = ExtResource("6_ao06c")
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="car/person"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="car/person/Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_04t4w")
+
+[node name="person2" type="Node2D" parent="car" groups=["people"]]
+position = Vector2(28, 6)
+script = ExtResource("6_3t6yx")
+metadata/Input = "A"
+
+[node name="Sprite" type="Sprite2D" parent="car/person2"]
+scale = Vector2(0.0354278, 0.0354278)
+texture = ExtResource("3_s3dpa")
+script = ExtResource("6_ao06c")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="car/person2"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="car/person2/Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_04t4w")
 
 [connection signal="body_entered" from="car/person/Area2D" to="car/person" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="car/person2/Area2D" to="car/person2" method="_on_area_2d_body_entered"]

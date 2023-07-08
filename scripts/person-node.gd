@@ -28,6 +28,8 @@ func play_animation():
 	match state:
 		State.STUNNED:
 			sprite.new_texture(sprite.textures['stunned'])
+		State.INVINCIBLE:
+			sprite.new_texture(sprite.textures['invincible'])
 		_:
 			sprite.new_texture(sprite.textures['ok'])
 			
