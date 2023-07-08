@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://t7us3pgenqs8"]
+[gd_scene load_steps=5 format=3 uid="uid://t7us3pgenqs8"]
 
 [ext_resource type="Texture2D" uid="uid://bewearmejwxm" path="res://assets/basic-track-3.png" id="1_k0xkd"]
+[ext_resource type="Script" path="res://scenes/race.gd" id="1_ue8bu"]
 [ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://objects/car-p1.tscn" id="2_cj3ba"]
+[ext_resource type="PackedScene" uid="uid://d2b0k1mbvhfef" path="res://scenes/main_menu.tscn" id="2_jcn5m"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_ue8bu")
+main_menu = ExtResource("2_jcn5m")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(0.894531, 0.798005)
