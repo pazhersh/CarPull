@@ -98,6 +98,14 @@ stream = ExtResource("8_kljv0")
 volume_db = 8.0
 autoplay = true
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Label" parent="HUD" groups=["timer"]]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Something"
+
 [connection signal="car_passed_finish_line" from="car-p1" to="." method="_on_carp_1_car_passed_finish_line"]
 [connection signal="car_passed_finish_line" from="car-p1" to="finishLine" method="_on_carp_1_car_passed_finish_line"]
 [connection signal="body_entered" from="finishLine" to="car-p1" method="_on_finish_line_body_entered"]

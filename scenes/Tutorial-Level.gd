@@ -2,10 +2,15 @@ extends Node2D
 
 var time: float = 0
 var is_done: bool = false
+var timer: Label
+
+func _ready():
+	timer = get_tree().get_first_node_in_group('timer')
 
 func _process(delta):
 	if not is_done:
 		time += delta
+		timer.text = 'Time: ' + str(int(time))
 		
 	if Input.is_action_just_pressed('quit'):
 		navigate_to_menu()
