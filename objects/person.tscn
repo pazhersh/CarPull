@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://fqqvenao4w0u"]
+[gd_scene load_steps=8 format=3 uid="uid://fqqvenao4w0u"]
 
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="2_b7bf1"]
 [ext_resource type="Script" path="res://scripts/person-sprite.gd" id="3_sj1be"]
 [ext_resource type="AudioStream" uid="uid://hevr0qvvpf68" path="res://audio/whip.mp3" id="4_cuv5r"]
 [ext_resource type="PackedScene" uid="uid://dnlkk8c4xp1m2" path="res://objects/whip.tscn" id="4_rmixa"]
+[ext_resource type="AudioStream" uid="uid://2wx5yxj503pf" path="res://audio/ouch-sound-effect-30-11844.mp3" id="5_dlgwc"]
 
 [sub_resource type="GDScript" id="GDScript_p0jse"]
 script/source = "extends Node
@@ -31,7 +32,13 @@ func _ready():
 	personSprite = get_children().filter(func(child): return child.name == 'Sprite').front()
 	var state = State.OK
 	var state_time: float = 0
+
+func get_hit():
+	state = State.STUNNED
+	state_time = STUN_TIME
+	$ouch.play()
 	
+
 func play_animation():
 	match state:
 		State.STUNNED:
@@ -65,8 +72,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group(\"obstacles\") && state == State.OK:
-		state = State.STUNNED
-		state_time = STUN_TIME
+		get_hit()
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
@@ -95,5 +101,9 @@ frame_progress = 0.0
 
 [node name="sound" type="AudioStreamPlayer2D" parent="Whip"]
 stream = ExtResource("4_cuv5r")
+
+[node name="ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dlgwc")
+volume_db = 9.093
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

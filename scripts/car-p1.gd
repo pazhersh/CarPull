@@ -26,7 +26,8 @@ func _physics_process(delta):
 	var collision_target: KinematicCollision2D = move_and_collide(motion)
 	
 	if collision_target:
-		print("Car has collided")
+		if !$ouch.is_playing():
+			$ouch.play()
 
 
 func _on_finish_line_body_entered(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://curmmfutihuua"]
+[gd_scene load_steps=11 format=3 uid="uid://curmmfutihuua"]
 
 [ext_resource type="Texture2D" uid="uid://c6g38o7rjixvs" path="res://assets/tutorial-track-1.png" id="1_lairr"]
 [ext_resource type="PackedScene" uid="uid://0ubt6f1432ul" path="res://objects/car.tscn" id="2_8auu1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj3hh1iayapq8" path="res://assets/whip text.png" id="4_lcofa"]
 [ext_resource type="Texture2D" uid="uid://bbrg0tmtkompx" path="res://assets/buttons.png" id="5_06oka"]
 [ext_resource type="Script" path="res://scripts/finishLine.gd" id="7_ka838"]
+[ext_resource type="AudioStream" uid="uid://bjpofxlom2bx3" path="res://audio/new-york-city-night-evening-rooftop-ambience-traffic-bushwick-brooklyn-above-ground-subway-m-train-6775.mp3" id="8_kljv0"]
 [ext_resource type="AudioStream" uid="uid://cjxldo467ijpm" path="res://audio/car-horns-trial-153261.mp3" id="8_slrps"]
 
 [sub_resource type="Curve2D" id="Curve2D_65a8f"]
@@ -87,6 +88,11 @@ curve = SubResource("Curve2D_kftgm")
 position = Vector2(56.2371, -196.046)
 rotation = 1.55524
 progress = 401.003
+
+[node name="Ambiance" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kljv0")
+volume_db = 8.0
+autoplay = true
 
 [connection signal="car_passed_finish_line" from="car-p1" to="finishLine" method="_on_carp_1_car_passed_finish_line"]
 [connection signal="body_entered" from="finishLine" to="car-p1" method="_on_finish_line_body_entered"]
