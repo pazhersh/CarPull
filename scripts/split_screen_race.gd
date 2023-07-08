@@ -10,8 +10,3 @@ func _ready():
 	viewport2.world_2d = viewport1.world_2d
 	camera1.target = world.get_node('car-p1')
 	camera2.target = world.get_node('car-p2')
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
