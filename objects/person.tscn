@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://fqqvenao4w0u"]
+[gd_scene load_steps=11 format=3 uid="uid://fqqvenao4w0u"]
 
 [ext_resource type="Script" path="res://scripts/person.gd" id="1_nj1by"]
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person blue.png" id="2_b7bf1"]
 [ext_resource type="Script" path="res://scripts/person-sprite.gd" id="3_sj1be"]
 [ext_resource type="AudioStream" uid="uid://hevr0qvvpf68" path="res://audio/whip.mp3" id="4_cuv5r"]
 [ext_resource type="PackedScene" uid="uid://dnlkk8c4xp1m2" path="res://objects/whip.tscn" id="4_rmixa"]
+[ext_resource type="Texture2D" uid="uid://co1c0llui5ma0" path="res://assets/person red.png" id="4_vahkt"]
 [ext_resource type="AudioStream" uid="uid://2wx5yxj503pf" path="res://audio/ouch-sound-effect-30-11844.mp3" id="5_dlgwc"]
+[ext_resource type="Texture2D" uid="uid://ygxiun1qv6oq" path="res://assets/person green.png" id="5_um6rr"]
+[ext_resource type="Texture2D" uid="uid://dy6flatiuqdcv" path="res://assets/person lying red.png" id="6_e1x0m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04t4w"]
 radius = 5.0
@@ -18,6 +21,9 @@ metadata/Input = "Q"
 scale = Vector2(0.0354278, 0.0354278)
 texture = ExtResource("2_b7bf1")
 script = ExtResource("3_sj1be")
+ok_sprite = ExtResource("4_vahkt")
+stunned_sprite = ExtResource("5_um6rr")
+invincible_sprite = ExtResource("6_e1x0m")
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]

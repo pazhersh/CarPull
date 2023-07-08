@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://0ubt6f1432ul"]
 
-[ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_u1lq8"]
+[ext_resource type="Script" path="res://scripts/car-p1.gd" id="1_hdbb1"]
 [ext_resource type="Texture2D" uid="uid://bvj76bcrn8is2" path="res://assets/temporary-rope-1.png" id="2_sb4s5"]
 [ext_resource type="Texture2D" uid="uid://bo252o0ir8t6u" path="res://assets/car red.png" id="2_u74su"]
-[ext_resource type="PackedScene" uid="uid://fqqvenao4w0u" path="res://objects/person.tscn" id="3_nl0ox"]
 [ext_resource type="AudioStream" uid="uid://dmuw0ey0on1l0" path="res://audio/car-ouch.mp3" id="5_60ahr"]
+[ext_resource type="PackedScene" uid="uid://myvwlk1jaajp" path="res://objects/person-blue.tscn" id="6_2nt0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxctr"]
 size = Vector2(20, 21.7163)
 
 [node name="car-p1" type="CharacterBody2D"]
 floor_stop_on_slope = false
-script = ExtResource("1_u1lq8")
+script = ExtResource("1_hdbb1")
 
 [node name="ropes" type="CanvasGroup" parent="."]
 
@@ -61,30 +61,30 @@ position = Vector2(-14, 0)
 scale = Vector2(1.00877, 0.597459)
 shape = SubResource("RectangleShape2D_rxctr")
 
-[node name="person" parent="." instance=ExtResource("3_nl0ox")]
+[node name="ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_60ahr")
+
+[node name="person7" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(16, -11)
 rotation = -0.42586
 
-[node name="person2" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person8" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(17, 7)
 rotation = 0.284489
 metadata/Input = "A"
 
-[node name="person3" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person9" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(34, 8)
 metadata/Input = "S"
 
-[node name="person4" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person10" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(35, -11)
 metadata/Input = "W"
 
-[node name="person5" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person11" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(55, -11)
 metadata/Input = "E"
 
-[node name="person6" parent="." instance=ExtResource("3_nl0ox")]
+[node name="person12" parent="." groups=["p1"] instance=ExtResource("6_2nt0t")]
 position = Vector2(55, 9)
 metadata/Input = "D"
-
-[node name="ouch" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_60ahr")
