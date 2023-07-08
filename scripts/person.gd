@@ -9,8 +9,8 @@ const INVINCIBILITY_TIME = 5
 
 var whipSprite: AnimatedSprite2D
 var personSprite: Sprite2D
-var state: int
-var state_time: float
+var state: int = PersonState.OK
+var state_time: float = 0
 
 func get_input():
 	return get_meta('Input')
@@ -18,8 +18,6 @@ func get_input():
 func _ready():
 	whipSprite = get_children().filter(func(child): return child.name == 'Whip').front()
 	personSprite = get_children().filter(func(child): return child.name == 'Sprite').front()
-	var state = PersonState.OK
-	var state_time: float = 0
 	
 func play_animation():
 	personSprite.set_state(state)
