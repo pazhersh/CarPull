@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fqqvenao4w0u"]
+[gd_scene load_steps=7 format=3 uid="uid://fqqvenao4w0u"]
 
 [ext_resource type="Texture2D" uid="uid://cx4m8442uhned" path="res://assets/person 1.png" id="2_b7bf1"]
 [ext_resource type="Script" path="res://scripts/person-sprite.gd" id="3_sj1be"]
+[ext_resource type="AudioStream" uid="uid://hevr0qvvpf68" path="res://audio/whip.mp3" id="4_cuv5r"]
 [ext_resource type="PackedScene" uid="uid://dnlkk8c4xp1m2" path="res://objects/whip.tscn" id="4_rmixa"]
 
 [sub_resource type="GDScript" id="GDScript_p0jse"]
@@ -44,8 +45,9 @@ func play_animation():
 func process():
 	if state != State.STUNNED:
 		if Input.is_action_just_pressed(get_meta('Input')):
-			whipSprite.play_once()
-			return self.position.normalized() * PULL_POWER
+			if !whipSprite.is_playing():
+				whipSprite.play_once()
+				return self.position.normalized() * PULL_POWER
 	return Vector2()
 	
 func _process(delta):
@@ -90,5 +92,8 @@ position = Vector2(-13, 2)
 rotation = 0.352556
 frame = 3
 frame_progress = 0.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="Whip"]
+stream = ExtResource("4_cuv5r")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

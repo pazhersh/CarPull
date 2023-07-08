@@ -45,8 +45,10 @@ func _ready():
 	visible = false
 
 func play_once():
-	visible = true
-	play()
+	if not is_playing():
+		visible = true
+		$sound.play()
+		play()
 
 func _on_animation_finished():
 	visible = false
