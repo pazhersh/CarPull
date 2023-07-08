@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://clrvnvycblemp" path="res://fonts/stopmotiondecember11-webfont.ttf" id="1_w6dkl"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_wotxm"]
-[ext_resource type="PackedScene" uid="uid://2l80mavjleab" path="res://objects/car-menu.tscn" id="2_hrkl5"]
+[ext_resource type="PackedScene" path="res://objects/car-menu.tscn" id="2_hrkl5"]
 [ext_resource type="PackedScene" uid="uid://curmmfutihuua" path="res://scenes/Tutorial-Level.tscn" id="2_htdf8"]
 [ext_resource type="PackedScene" uid="uid://t7us3pgenqs8" path="res://scenes/race.tscn" id="3_slflg"]
 

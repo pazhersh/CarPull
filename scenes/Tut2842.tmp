@@ -50,6 +50,7 @@ position = Vector2(569, 462)
 
 [node name="Camera2D2" type="Camera2D" parent="car-p1"]
 position = Vector2(-14, 1)
+offset = Vector2(70, 0)
 ignore_rotation = false
 zoom = Vector2(3.245, 3.245)
 position_smoothing_speed = 6.0
